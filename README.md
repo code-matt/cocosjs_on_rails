@@ -20,6 +20,7 @@ rails s
 ###Todo:
 * Events
 * Client side prediction
+* Stress test with [Thor](https://github.com/observing/thor)
 * Investigate communicating with binary instead of utf-8
 
 ###Thanks

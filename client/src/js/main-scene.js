@@ -33,14 +33,6 @@ var MainScene = cc.Scene.extend({
                                 var player_state = data.state.players[player]
                                 var ghost = this.game.getGhostById(player_state.id)
                                 ghost.setPosition(player_state.position.x,player_state.position.y)}.bind(this,data),200)
-                                ////
-                                // var local = this.game.getPlayerById(player_obj.id)
-                                // var sprite = local.getSprite()
-                                // var actionMove = cc.MoveTo.create(0.05, cc.p(player_obj.position.x, player_obj.position.y));
-                                // sprite.runAction(actionMove)}.bind(this,data),200)
-                                //////
-                                // local.getSprite().body.p.x = player_obj.position.x
-                                // local.getSprite().body.p.y = player_obj.position.y}.bind(this,data),200)
                         }
                     }
                 }
