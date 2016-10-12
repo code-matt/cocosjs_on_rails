@@ -1,5 +1,5 @@
 #cocos_on_rails
-![Screenshot](logo.png)
+<img style="float:left" src="logo.jpg" />
 ##rails websocket html5 multiplayer boilerplate. Rails is an authortative server running chipmunk physics in one thread. Regular updates about state are delivered on another.
 ### extreme WIP
 
