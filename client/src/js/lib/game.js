@@ -19,10 +19,7 @@ function Game ({options}) {
         var player_cc_data = playersController.getPlayerById(player.getId())
         const { x, y } = player_cc_data.body.p
         const serverGhost = new Ghost({ id:player.getId(), x, y, width: 64, height: 64 });
-        // const localGhost = new Ghost({ x, y, width: player.getWidth(), height: player.getHeight() });
-
         serverGhosts.set(player.getId(), serverGhost);
-        // localGhosts.set(player.getId(), localGhost);
     }
 
     function removePlayer (playerId,playersController){
