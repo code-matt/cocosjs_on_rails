@@ -20,4 +20,3 @@ rails s
 ###Thanks
 https://github.com/beoran/chipmunk
 http://buildnewgames.com/real-time-multiplayer/
-https://github.com/arjanfrans/realtime-multiplayer-in-html5
