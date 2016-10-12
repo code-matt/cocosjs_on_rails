@@ -10,6 +10,7 @@
 
 ###installation
 ```
+rails db:create
 bundle install
 cd client
 npm install(this should trigger jspm install at the end)
