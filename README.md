@@ -17,6 +17,11 @@ gulp build
 rails s
 ```
 
+###Todo:
+* Events
+* Client side prediction
+* Investigate communicating with binary instead of utf-8
+
 ###Thanks
-https://github.com/beoran/chipmunk
-http://buildnewgames.com/real-time-multiplayer/
+* https://github.com/beoran/chipmunk
+* http://buildnewgames.com/real-time-multiplayer/
