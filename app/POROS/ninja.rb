@@ -1,8 +1,9 @@
 class Ninja
-  attr_accessor :name, :key_state, :id, :body, :inputs, :last_input_seq, :shape, :body
+  attr_accessor :name, :key_state, :id, :body, :inputs, :last_input_seq, :shape, :body, :touching_ground
 
   BOX_SIZE = 64
   def initialize(id,ninja_obj,name="tommy")
+    @touching_ground = false
     @name = name
     @id = id
     @key_state = {
@@ -28,6 +29,7 @@ class Ninja
     @shape.e = 0.0
     @shape.u = 0.99
     @body.v_limit = 300
+    # @shape.object = self
     ninja_obj.space.add_body(@body)
     ninja_obj.space.add_shape(@shape)
     return self
@@ -63,6 +65,11 @@ class Ninja
 
   def update_keystate(keystate)
     @key_state = keystate
+  end
+
+  def touching_ground?(space)
+    space.segment_query(@body.p, CP::Vec2.new(@body.p.x,(@body.p.y - 20000))) do |shape, t, n|
+    end
   end
 
 end

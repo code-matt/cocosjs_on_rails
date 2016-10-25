@@ -17,6 +17,7 @@ class NinjaHelper
     ninjas = ApplicationController::NINJAS.ninjas
     ninjas.each do |ninja|
       ninja.body.reset_forces
+      val = ninja.touching_ground?(space)
     end
     @@things_to_clean.each do |thing|
       space.remove_body(thing.body)

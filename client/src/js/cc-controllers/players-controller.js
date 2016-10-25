@@ -1,5 +1,6 @@
 'use strict';
 import { NinjaLayerTemplate } from '../cc-templates/players-layer'
+import { COLLISION_TYPES } from '../lib/collision-templates/config'
 
 export class PlayersController{
     constructor(space){
@@ -16,6 +17,7 @@ export class PlayersController{
         body.p = cc.p(spawnX, spawnY);
         this.space.addBody(body);
         var shape = new cp.BoxShape(body, contentSize.width, contentSize.height);
+        shape.playerId = playerId
         this.space.addShape(shape);
         sprite.setBody(body);
         this.ninjaLayer.addChild(sprite);
@@ -25,6 +27,7 @@ export class PlayersController{
             space: this.space,
             shape: shape
         })
+        shape.setCollisionType(COLLISION_TYPES['player'])
         return sprite    
     }
 

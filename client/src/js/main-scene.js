@@ -1,8 +1,11 @@
 import { WSClient } from './lib/client-connection'
 import { PlayersController } from './cc-controllers/players-controller'
-import { InputHandler } from './input/index'
+import { InputHandler } from './lib/input/index'
 import { Player } from './lib/player'
 import { Game } from './lib/game'
+
+import { CollisionManager } from './lib/collisions'
+import { COLLISION_TYPES } from './lib/collision-templates/config'
 
 var MainScene = cc.Scene.extend({
     space:null,
@@ -80,10 +83,17 @@ var MainScene = cc.Scene.extend({
             cp.v(0, 0),// start point
             cp.v(4000, 0),// MAX INT:4294967295
             0);// thickness of wall
+        wallBottom.setCollisionType(COLLISION_TYPES['static'])
         this.space.addStaticShape(wallBottom);
+        this.collisionManager = new CollisionManager(this)
         return this.space
     },
+    floorCollision(){
+        console.log("collision!")
+        return true
+    },
     update:function (dt) {
+        this.space.step(dt)
         this.updateInput();
         var ghosts = this.game.getGhosts()
         for (const ghost of ghosts){
@@ -98,7 +108,6 @@ var MainScene = cc.Scene.extend({
             },dt)
             player_cc_data.body.p.x += nextPos.x
             player_cc_data.body.p.y += nextPos.y
-            console.log("x" + nextPos.x + "| y" + nextPos.y)
         }
     },
     interpolate(pos1,pos2,dt){
