@@ -93,7 +93,7 @@ var MainScene = cc.Scene.extend({
         return true
     },
     update:function (dt) {
-        this.space.step(dt)
+        // this.space.step(dt)
         this.updateInput();
         var ghosts = this.game.getGhosts()
         for (const ghost of ghosts){

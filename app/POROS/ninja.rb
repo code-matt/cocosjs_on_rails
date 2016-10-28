@@ -1,6 +1,6 @@
 class Ninja
   attr_accessor :name, :key_state, :id, :body, :inputs, :last_input_seq, :shape, :body, :touching_ground
-
+  INFINITY = 1.0/0
   BOX_SIZE = 64
   def initialize(id,ninja_obj,name="tommy")
     @touching_ground = false
@@ -14,7 +14,7 @@ class Ninja
     }
     @inputs = [];
     @last_input_seq = 0;
-    @body = CP::Body.new(10, CP.moment_for_box(10,64,64))
+    @body = CP::Body.new(10, INFINITY)
     @body.p = CP::Vec2.new(200, 200)
     @body.v = CP::Vec2.new(0,0)
     @shape_verts = [
@@ -46,7 +46,9 @@ class Ninja
             when "l"
               @body.apply_impulse(CP::Vec2.new(-500,0),CP::Vec2.new(0,0))
             when "u"
-              @body.apply_impulse(CP::Vec2.new(0,500),CP::Vec2.new(0,0))
+              if @touching_ground
+                @body.apply_impulse(CP::Vec2.new(0,3000),CP::Vec2.new(0,0))
+              end
             when "d"
               @body.apply_impulse(CP::Vec2.new(0,0),CP::Vec2.new(0,0))
             when "f"
