@@ -68,7 +68,9 @@ class Ninja
   end
 
   def touching_ground?(space)
-    space.segment_query(@body.p, CP::Vec2.new(@body.p.x,(@body.p.y - 20000))) do |shape, t, n|
+    @touching_ground = false
+    space.segment_query(@body.p, CP::Vec2.new(@body.p.x,(@body.p.y - 35))) do |shape, t, n|
+      @touching_ground = true
     end
   end
 

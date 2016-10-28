@@ -18,6 +18,7 @@ class NinjaHelper
     ninjas.each do |ninja|
       ninja.body.reset_forces
       val = ninja.touching_ground?(space)
+      print("Touching: #{val}")
     end
     @@things_to_clean.each do |thing|
       space.remove_body(thing.body)
