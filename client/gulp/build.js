@@ -16,7 +16,7 @@ var gulp = require('gulp'),
 
 // One build task to rule them all.
 gulp.task('build', function (done) {
-  runSeq('clean', ['buildsass', 'buildimg', 'buildjs'], 'buildhtml', done);
+  runSeq('clean', ['buildsass', 'buildimg', 'movemap', 'buildjs'], 'buildhtml', done);
 });
 
 // Build SASS for distribution.
@@ -64,4 +64,10 @@ gulp.task('buildimg', function () {
       use: [pngquant()]
     }))
     .pipe(gulp.dest(global.paths.dist + '/img'));
+});
+
+// Build images for distribution.
+gulp.task('movemap', function () {
+  gulp.src(global.paths.map)
+    .pipe(gulp.dest(global.paths.dist + '/map'));
 });

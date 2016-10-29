@@ -24,6 +24,8 @@ global.paths = {
   'sass': './src/scss/**/*.scss',
   // Image sources.
   'img': './src/img/*',
+  // Map sources.
+  'map': './src/map/*.**',
   // Sources folder.
   'src': './src',
   // Compiled CSS folder.
