@@ -10,7 +10,7 @@ class MapReader
 
   def create_statics(map_hash,space,tracker)
     height = map_hash["height"] * map_hash["tilewidth"]
-    objects = map_hash["layers"][1]["objects"]
+    objects = map_hash["layers"].select{ |layer| layer["name"] == "static_shapes"}[0]["objects"]
 
     objects.each do |object|
       if object["properties"]["static_shape"] == true
