@@ -1,7 +1,7 @@
 class Ninja
   attr_accessor :name, :key_state, :id, :body, :inputs, :last_input_seq, :shape, :body, :touching_ground
   INFINITY = 1.0/0
-  BOX_SIZE = 64
+  BOX_SIZE = 32
   def initialize(id,ninja_obj,name="tommy")
     @touching_ground = false
     @name = name
@@ -15,7 +15,7 @@ class Ninja
     @inputs = [];
     @last_input_seq = 0;
     @body = CP::Body.new(10, INFINITY)
-    @body.p = CP::Vec2.new(200, 200)
+    @body.p = CP::Vec2.new(20, 150)
     @body.v = CP::Vec2.new(0,0)
     @shape_verts = [
                 CP::Vec2.new(-BOX_SIZE/2, BOX_SIZE/2),
@@ -29,7 +29,6 @@ class Ninja
     @shape.e = 0.0
     @shape.u = 0.99
     @body.v_limit = 300
-    # @shape.object = self
     ninja_obj.space.add_body(@body)
     ninja_obj.space.add_shape(@shape)
     return self
@@ -71,7 +70,7 @@ class Ninja
 
   def touching_ground?(space)
     @touching_ground = false
-    space.segment_query(@body.p, CP::Vec2.new(@body.p.x,(@body.p.y - 35))) do |shape, t, n|
+    space.segment_query(@body.p, CP::Vec2.new(@body.p.x,(@body.p.y - 19))) do |shape, t, n|
       @touching_ground = true
     end
   end

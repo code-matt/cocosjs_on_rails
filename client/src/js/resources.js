@@ -1,6 +1,7 @@
 var res = {
     box_png : "img/box.png",
-    map_png: "map/castle_tiles_final.png",
+    map_png: "map/tiles.png",
+    map2_png: "map/cavern_tiles.png",
     map00_tmx: "map/test.tmx",
 };
 

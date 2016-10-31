@@ -10,16 +10,17 @@ class MapReader
 
   def create_statics(map_hash,space,tracker)
     height = map_hash["height"] * map_hash["tilewidth"]
-    objects = map_hash["layers"].select{ |layer| layer["name"] == "static_shapes"}[0]["objects"]
+    poly_objects = map_hash["layers"].select{ |layer| layer["name"] == "poly_shapes"}[0]["objects"]
 
-    objects.each do |object|
-      if object["properties"]["static_shape"] == true
-        tracker.static_shapes << SegmentShape.new(
-          space,
-          CP::Vec2.new(object["x"],(height - object["y"]) - (map_hash["tilewidth"]/2)),
-          CP::Vec2.new(object["x"]+object["width"],(height - object["y"]) - (map_hash["tilewidth"]/2)),
-          object["height"])
-      end
+    poly_objects.each do |object|
+      origin = [object["x"],object["y"]]
+      polyline = object["polyline"]
+      tracker.static_shapes << SegmentShape.new(
+        space,
+        CP::Vec2.new(origin[0] + polyline[0]["x"],(height - (origin[1] + polyline[0]["y"]))),
+        CP::Vec2.new(origin[0] + polyline[1]["x"],(height - (origin[1] + polyline[1]["y"]))),
+        0,
+        0)
     end
   end
 end
