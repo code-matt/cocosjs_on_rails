@@ -1,20 +1,19 @@
 'use strict';
 import { NinjaLayerTemplate } from '../cc-templates/players-layer'
 import { COLLISION_TYPES } from '../lib/collision-templates/config'
-import { AnimationController } from '../lib/animation'
+import { AnimationManager } from '../lib/animation'
 
 export class PlayersController{
     constructor(space){
         this.space = space
         this.ninjaLayer = new NinjaLayerTemplate(space)
+        this.animationManager = new AnimationManager()
         this.ninjas = new Map()
     }
     addPlayer(playerId){
         var spawnY = 200;
         var spawnX = 200;
-        // var sprite = new cc.PhysicsSprite("img/box.png");
-        cc.spriteFrameCache.addSpriteFrames("img/player_char.plist");
-        var sprite = new cc.PhysicsSprite("#player_char_65.png");
+        var sprite = this.animationManager.addPlayer(playerId)
         var contentSize = sprite.getContentSize();
         var body = new cp.Body(1, cp.momentForBox(1, contentSize.width, contentSize.height));
         body.p = cc.p(spawnX, spawnY);
@@ -28,7 +27,8 @@ export class PlayersController{
             body: body,
             sprite: sprite,
             space: this.space,
-            shape: shape
+            shape: shape,
+            animation_action: null
         })
         shape.setCollisionType(COLLISION_TYPES['player'])
         return sprite    
@@ -36,5 +36,17 @@ export class PlayersController{
 
     getPlayerById (playerId) {
         return this.ninjas.get(playerId);
+    }
+
+    setAnimation(playerId,anim_name) {
+        var player = this.ninjas.get(playerId);
+        var action = player.sprite.animationManager.loadedActions.get(anim_name)
+        player.sprite.runAction(action)
+        player.animation_action = action
+    }
+
+    stopAnimation(playerId) {
+        var player = this.ninjas.get(playerId);
+        player.sprite.stopAction(player.animation_action)
     }
 }

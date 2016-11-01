@@ -39,7 +39,15 @@ var MainScene = cc.Scene.extend({
                             setTimeout(function(){
                                 var player_state = data.state.players[player]
                                 var ghost = this.game.getGhostById(player_state.id)
-                                ghost.setPosition(player_state.position.x,player_state.position.y)}.bind(this,data),200)
+                                if(ghost){
+                                    ghost.setPosition(player_state.position.x,player_state.position.y)
+                                    this.playersController.stopAnimation(player_state.id)
+                                    if(player_state.position.vx > 5){
+                                        this.playersController.setAnimation(player_state.id,"running_r")
+                                    }else{
+                                        this.playersController.setAnimation(player_state.id,"standing")
+                                    }}
+                            }.bind(this,data),200)
                         }
                     }
                 }
@@ -76,9 +84,6 @@ var MainScene = cc.Scene.extend({
         this.map00 = new cc.TMXTiledMap("map/test.tmx");
         this.addChild(this.map00);
         this.mapWidth = this.map00.getContentSize().width;
-        // this.map01 = new cc.TMXTiledMap(res.map01_tmx);
-        // this.map01.setPosition(cc.p(this.mapWidth, 0));
-        // this.addChild(this.map01);
         this.initPhysics();
         this.playersController = new PlayersController(this.space)
         this.ninjaLayer = this.playersController.ninjaLayer

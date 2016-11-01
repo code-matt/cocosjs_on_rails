@@ -39,7 +39,7 @@ class NinjaHelper
         id: ninja.id,
         name: "tommy",
         lastInputSeq: ninja.last_input_seq,
-        position: {x: ninja.body.p.x,y: ninja.body.p.y}
+        position: {x: ninja.body.p.x,y: ninja.body.p.y,vx:ninja.body.v.x,vy:ninja.body.v.y}
       }
     end
     {
