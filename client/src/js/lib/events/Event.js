@@ -1,14 +1,14 @@
 'use strict'
 
-export class EventManager{
-  constructor(mainScene){
+export class EventManager {
+  constructor (mainScene) {
     this.mainScene = mainScene
     this.game = mainScene.game
     this.conn = mainScene.conn
     this.plContr = mainscene.playersController
     this.events = new Map()
   }
-  processNetworkEvents(events){
+  processNetworkEvents (events) {
     //
   }
 }

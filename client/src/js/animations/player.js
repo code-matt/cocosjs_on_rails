@@ -1,8 +1,8 @@
 'use strict'
 
 export const PlayerAnimations = {
-  type: "player",
-  plist: "img/player_char.plist",
+  type: 'player',
+  plist: 'img/player_char.plist',
   anims: {
     running_r: {
       start_frame: 1,

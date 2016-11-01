@@ -1,45 +1,45 @@
-'use strict';
+'use strict'
 
 function Timer () {
-    let intervalId = null;
-    let time = 0;
+  let intervalId = null
+  let time = 0
 
-    function start () {
-        let previous = Date.now();
+  function start () {
+    let previous = Date.now()
 
-        intervalId = setInterval(() => {
-            const currentTime = Date.now();
-            const delta = (currentTime - previous) / 1000;
+    intervalId = setInterval(() => {
+      const currentTime = Date.now()
+      const delta = (currentTime - previous) / 1000
 
-            previous = currentTime;
+      previous = currentTime
 
-            if (typeof onUpdate === 'function') {
-                onUpdate(delta);
-            }
+      if (typeof onUpdate === 'function') {
+        onUpdate(delta)
+      }
 
-            time += delta;
-        }, 4);
-    }
+      time += delta
+    }, 4)
+  }
 
-    function stop () {
-        clearInterval(intervalId);
-        time = 0;
-    }
+  function stop () {
+    clearInterval(intervalId)
+    time = 0
+  }
 
-    function getTime () {
-        return time;
-    }
+  function getTime () {
+    return time
+  }
 
-    function setTime (value) {
-        time = value;
-    }
+  function setTime (value) {
+    time = value
+  }
 
-    return Object.freeze({
-        start,
-        stop,
-        getTime,
-        setTime
-    });
+  return Object.freeze({
+    start,
+    stop,
+    getTime,
+    setTime
+  })
 }
 
 export { Timer }
