@@ -1,6 +1,7 @@
 'use strict';
 import { NinjaLayerTemplate } from '../cc-templates/players-layer'
 import { COLLISION_TYPES } from '../lib/collision-templates/config'
+import { AnimationController } from '../lib/animation'
 
 export class PlayersController{
     constructor(space){
@@ -11,7 +12,9 @@ export class PlayersController{
     addPlayer(playerId){
         var spawnY = 200;
         var spawnX = 200;
-        var sprite = new cc.PhysicsSprite("img/box.png");
+        // var sprite = new cc.PhysicsSprite("img/box.png");
+        cc.spriteFrameCache.addSpriteFrames("img/player_char.plist");
+        var sprite = new cc.PhysicsSprite("#player_char_65.png");
         var contentSize = sprite.getContentSize();
         var body = new cp.Body(1, cp.momentForBox(1, contentSize.width, contentSize.height));
         body.p = cc.p(spawnX, spawnY);

@@ -3,6 +3,8 @@ var res = {
     map_png: "map/tiles.png",
     map2_png: "map/cavern_tiles.png",
     map00_tmx: "map/test.tmx",
+    player_char_png  : "img/player_char.png",
+    player_char_plist : "img/player_char.plist"
 };
 
 var g_resources = [];

@@ -1,5 +1,7 @@
 import { Timer } from './timer'
 import { Ghost } from './ghost'
+import { AnimationManager } from './animation'
+
 function Game ({options}) {
     const players = new Map();
     const serverGhosts = new Map();
@@ -8,6 +10,7 @@ function Game ({options}) {
     let started = false;
     let eventsFired = [];
     const timer = new Timer();
+    const animationManager = new AnimationManager();
     timer.start()
 
     function getTime () {

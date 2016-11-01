@@ -30,7 +30,7 @@
                 {
                  "height":0,
                  "id":13,
-                 "name":"",
+                 "name":"wall",
                  "polyline":[
                         {
                          "x":0,
@@ -50,7 +50,7 @@
                 {
                  "height":0,
                  "id":17,
-                 "name":"",
+                 "name":"wall",
                  "polyline":[
                         {
                          "x":0,
@@ -70,7 +70,7 @@
                 {
                  "height":0,
                  "id":18,
-                 "name":"",
+                 "name":"wall",
                  "polyline":[
                         {
                          "x":0,
@@ -90,7 +90,7 @@
                 {
                  "height":0,
                  "id":19,
-                 "name":"",
+                 "name":"wall",
                  "polyline":[
                         {
                          "x":0,
@@ -110,7 +110,7 @@
                 {
                  "height":0,
                  "id":20,
-                 "name":"",
+                 "name":"wall",
                  "polyline":[
                         {
                          "x":0,
@@ -134,7 +134,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":21,
+ "nextobjectid":22,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tileheight":32,
