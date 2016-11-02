@@ -50,15 +50,19 @@ export class PlayersController {
     player.sprite.stopAction(player.animation_action)
   }
 
-  calcAnimationState (velocity) {
-    if (velocity.vx > 1) {
+  calcAnimationState (velocity, player) {
+    if (velocity.vx > 3) {
+      player.sprite.flippedX = false
+      return 'running_r'
+    } else if (velocity.vx < -3) {
+      player.sprite.flippedX = true
       return 'running_r'
     } else {
       return 'standing'
     }
   }
   setAnimationState (velocity, player) {
-    var nextAnim = this.calcAnimationState(velocity)
+    var nextAnim = this.calcAnimationState(velocity, player)
     if (player.animation_action_name !== nextAnim) {
       this.stopAnimation(player)
       this.setAnimation(player, nextAnim)

@@ -14,7 +14,7 @@ class Ninja
     }
     @inputs = [];
     @last_input_seq = 0;
-    @body = CP::Body.new(10, INFINITY)
+    @body = CP::Body.new(30, INFINITY)
     @body.p = CP::Vec2.new(20, 150)
     @body.v = CP::Vec2.new(0,0)
     @shape_verts = [
@@ -28,7 +28,7 @@ class Ninja
                                  CP::Vec2.new(0,0))
     @shape.e = 0.0
     @shape.u = 0.99
-    @body.v_limit = 300
+    @body.v_limit = 180
     ninja_obj.space.add_body(@body)
     ninja_obj.space.add_shape(@shape)
     return self
@@ -46,7 +46,7 @@ class Ninja
               @body.apply_impulse(CP::Vec2.new(-500,0),CP::Vec2.new(0,0))
             when "u"
               if @touching_ground
-                @body.apply_impulse(CP::Vec2.new(0,3000),CP::Vec2.new(0,0))
+                @body.apply_impulse(CP::Vec2.new(0,8000),CP::Vec2.new(0,0))
               end
             when "d"
               @body.apply_impulse(CP::Vec2.new(0,0),CP::Vec2.new(0,0))

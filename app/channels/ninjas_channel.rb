@@ -22,6 +22,10 @@ class NinjasChannel < ApplicationCable::Channel
     player.process_inputs
   end
 
+  def event
+    byebug
+  end
+
   def join(id)
     ninja_obj = ApplicationController::NINJAS
     ninja_obj.ninjas << Ninja.new(params["id"],ninja_obj)

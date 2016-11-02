@@ -3,6 +3,7 @@ import { PlayersController } from './cc-controllers/players-controller'
 import { InputHandler } from './lib/input/index'
 import { Player } from './lib/player'
 import { Game } from './lib/game'
+import { EventManager } from './lib/events/events'
 
 import { CollisionManager } from './lib/collisions'
 import { COLLISION_TYPES } from './lib/collision-templates/config'
@@ -15,6 +16,7 @@ var MainScene = cc.Scene.extend({
   inputSeq: 0,
   game: null,
   playersController: null,
+  eventManager: null,
   map00: null,
   onEnter: function () {
     this.conn = new WSClient()
@@ -75,6 +77,7 @@ var MainScene = cc.Scene.extend({
     this.mapWidth = this.map00.getContentSize().width
     this.initPhysics()
     this.playersController = new PlayersController(this.space)
+    this.eventManager = new EventManager(this.conn)
     this.ninjaLayer = this.playersController.ninjaLayer
     this.addChild(this.ninjaLayer)
   },

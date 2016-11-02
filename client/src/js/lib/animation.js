@@ -24,8 +24,13 @@ export class AnimationManager {
         }
         var ccAnim = new cc.Animation(animFrames, a['speed'])
         cc.animationCache.addAnimation(ccAnim, animation)
-        var action = cc.RepeatForever.create(new cc.Animate(ccAnim))
-        loadedActions.set(animation, action)
+        if (data.looping) {
+          var action = cc.RepeatForever.create(new cc.Animate(ccAnim))
+          loadedActions.set(animation, action)
+        } else {
+          var action = cc.Repeat.create(new cc.Animate(ccAnim), 1)
+          loadedActions.set(animation, action)
+        }
       }
     })
   }
