@@ -8,6 +8,8 @@
   [1]: https://drive.google.com/file/d/0B30Vmzi9uv6keXFfTC11aHBtS2s/view?usp=sharing
   [2]: http://i.imgur.com/jcXdik2.jpg (hover text)
 
+# ^ click to watch video
+
 ###installation
 ```
 rails db:create
