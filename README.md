@@ -43,7 +43,7 @@ Players input state is sent through the socket, causing their representation on 
 *{position, id, lastInputState} right now*
 
 #### Frontend
-Each player has both a Ghost and Player representation on the frontend. (Players are what is drawn) Ghosts are updated to the absolute position of what the server says their new position is. The Player object interpolates to the Ghost to smooth things out.
+Each player has both a Ghost and Player representation on the frontend. (Player's sprite/position is what draws) Ghosts are updated to the absolute position of what the server says their new position is. The Player object interpolates to the Ghost to smooth things out.
 
 #### Maps
 TODO: ( There are [Tiled](https://www.mapeditor.org/) maps loaded onto both the front and backend with collision zones for the backend to use in the simulation )
