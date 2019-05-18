@@ -12,11 +12,12 @@
 
 ###installation
 ```
-rails db:create
 bundle install
+rails db:create
 cd client
-npm install(this should trigger jspm install at the end)
-gulp build
+npm install
+npm run build
+cd ..
 rails s
 ```
 

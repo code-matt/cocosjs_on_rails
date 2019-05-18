@@ -35,5 +35,5 @@ Rails.application.config.middleware.insert_after(
   ActionDispatch::Static,
   ActionDispatch::Static,
   Rails.root.join("public").to_s,
-  Rails.application.config.static_cache_control
+  # Rails.application.config.static_cache_control
 )
