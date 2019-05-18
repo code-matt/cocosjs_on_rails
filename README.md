@@ -34,7 +34,7 @@ There are 3 Threads going on
     * inputUpdate ( the client changed their inputs )
     * event (**wip** the client initiated an event )
 &nbsp;
-+ SuckerPunch job running every 0.045 seconds updating the client about the state of themselves and all other players
++ SuckerPunch job running every 0.045 seconds updating the client over the websocket connection about the state of themselves and all other players
 **Think about not broadcasting to everyone and only sending state information to each client about things that are close enough to them to see or affect them.**
 &nbsp;
 + SuckerPunch job running every 0.03 seconds stepping the Chipmunk Space simulation forward the same amount of time.
