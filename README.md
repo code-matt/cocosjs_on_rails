@@ -67,6 +67,6 @@ The Ghost/Player interpolation now is nice to smooth out time and network random
     * I have a feeling using and obtaining items will need to be syncronized between both.
 + Come up with a name for this
 
-# Thanks
-* https://github.com/beoran/chipmunk
-* http://buildnewgames.com/real-time-multiplayer/
+## Contributing
+If you find a bug or would like to request a new feature, open an issue. 
+Your contributions are always welcome! Fork the project and Submit a pull request.
