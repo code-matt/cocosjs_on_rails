@@ -43,7 +43,7 @@ Players input state is sent through the socket, causing their representation on 
 *{position, id, lastInputState} right now*
 
 #### Frontend
-Each player has both a Ghost and Player representation on the frontend. (Players are what is drawn) Ghosts are updated to the absolute position of what the server says their new position is, given their inputs after the next 'step' of the physics 'space' is performed. The Player object interpolates to the Ghost to smooth things out.
+Each player has both a Ghost and Player representation on the frontend. (Players are what is drawn) Ghosts are updated to the absolute position of what the server says their new position is. The Player object interpolates to the Ghost to smooth things out.
 
 #### Maps
 TODO: ( There are [Tiled](https://www.mapeditor.org/) maps loaded onto both the front and backend with collision zones for the backend to use in the simulation )
@@ -60,6 +60,10 @@ The Ghost/Player interpolation now is nice to smooth out time and network random
 
 + Stress test with [Thor](https://github.com/observing/thor)
 + Investigate communicating with binary instead of utf-8
++ Persist the backend state through restarts. 
+    * Players being able to load in different places depending on their last state before disconnecting.
+    * Items can be ActiveRecord/Postgres.
+    * Player state recorded in a separate service that is also listening to all game updates ? Maybe saves every minute or so.
 + Come up with a name for this
 
 # Thanks
