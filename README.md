@@ -26,7 +26,7 @@ rails s
 
 ## High level overview
 #### Backend
-There are 3 Threads going on
+There are 3 threads going on
 + Regular rails handling players joining and leaving and delivering the front end assets. Also Rails ActionCable(fancy name for websockets) with five messages currently:
     * subscribed (the client has successfully websocket handshaked)
     * join (now that they are subscribed, the client wishes to join the game)
