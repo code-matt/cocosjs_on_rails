@@ -26,10 +26,17 @@ rails s
 
 ## High level overview
 #### Backend
-TODO
+There are 3 Threads going on
++ Regular rails handling players joining and leaving and delivering the front end assets.
++ SuckerPunch job running every 0.045 seconds updating the client about the state of themselves and all other players
+**Think about not broadcasting to everyone and only sending state information to each client about things that are close enough to them to see or affect them.**
++ SuckerPunch job running every 0.03 seconds stepping the Chipmunk Space simulation forward the same amount of time.
+
+Players presing on inputs are sent through the socket, causing their representation on the server to have the same input state. The third thread above will have their new position because of it and second thread above send it out in the next state update.
+
 
 #### Frontend
-Each player has both a Ghost and Player representation on the frontend. (Players are what is drawn) Ghosts are updated to the absolute position of what the server says their new position is, given their inputs. The Player object interpolates to the Ghost to smooth things out.
+Each player has both a Ghost and Player representation on the frontend. (Players are what is drawn) Ghosts are updated to the absolute position of what the server says their new position is, given their inputs after the next 'step' of the physics 'space' is performed. The Player object interpolates to the Ghost to smooth things out.
 
 # Todo:
 + Events - **In Progress** (will allow effects and sounds and stuff and users doing 'actions' like drinking a potion)
