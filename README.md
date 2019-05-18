@@ -1,7 +1,10 @@
-#cocosjs_on_rails
+# cocosjs_on_rails
+
 <img align="right" src="http://i.imgur.com/KA3OaVG.png" />
-##Rails websocket html5 multiplayer boilerplate. Rails is an authortative server running chipmunk physics in one thread. Regular updates about state are delivered on another.
-### extreme WIP
+
+## Rails websocket html5 multiplayer boilerplate. Rails is an authortative server running chipmunk physics in one thread. Regular updates about state are delivered on another. SuckerPunch gem used for background processing of the physics.
+
+# extreme WIP
 
 [![video][2]][1]
 
@@ -10,7 +13,7 @@
 
 # ^ click to watch video
 
-###installation
+## Installation
 ```
 bundle install
 rails db:create
@@ -21,12 +24,12 @@ cd ..
 rails s
 ```
 
-###Todo:
+# Todo:
 * Events
 * Client side prediction
 * Stress test with [Thor](https://github.com/observing/thor)
 * Investigate communicating with binary instead of utf-8
 
-###Thanks
+# Thanks
 * https://github.com/beoran/chipmunk
 * http://buildnewgames.com/real-time-multiplayer/
