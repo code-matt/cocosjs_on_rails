@@ -11,8 +11,8 @@ class WSClient {
     this.conn = new WebSocket('ws://localhost:3000/cable')
     var obj = this
     this.conn.onopen = (evt) => {
-      this.conn.send(JSON.stringify({ command: 'subscribe', identifier: JSON.stringify({ channel: 'NinjasChannel', id: obj.randChannelId }), type: 'confirm_subscription' }))
-      this.conn.send(JSON.stringify({ command: 'subscribe', identifier: JSON.stringify({ channel: 'NinjasChannel'}), type: 'confirm_subscription' }))
+      this.conn.send(JSON.stringify({ command: 'subscribe', identifier: JSON.stringify({ channel: 'PlayersChannel', id: obj.randChannelId }), type: 'confirm_subscription' }))
+      this.conn.send(JSON.stringify({ command: 'subscribe', identifier: JSON.stringify({ channel: 'PlayersChannel'}), type: 'confirm_subscription' }))
     }
     return Observable.create(observer => {
       this.conn.onmessage = (evt) => {

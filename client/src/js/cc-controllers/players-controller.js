@@ -1,14 +1,14 @@
 'use strict'
-import { NinjaLayerTemplate } from '../cc-templates/players-layer'
+import { PlayerLayerTemplate } from '../cc-templates/players-layer'
 import { COLLISION_TYPES } from '../lib/collision-templates/config'
 import { AnimationManager } from '../lib/animation'
 
 export class PlayersController {
   constructor (space) {
     this.space = space
-    this.ninjaLayer = new NinjaLayerTemplate(space)
+    this.playerLayer = new PlayerLayerTemplate(space)
     this.animationManager = new AnimationManager()
-    this.ninjas = new Map()
+    this.players = new Map()
   }
   addPlayer (playerId) {
     var spawnY = 200
@@ -22,8 +22,8 @@ export class PlayersController {
     shape.playerId = playerId
     this.space.addShape(shape)
     sprite.setBody(body)
-    this.ninjaLayer.addChild(sprite)
-    this.ninjas.set(playerId, {
+    this.playerLayer.addChild(sprite)
+    this.players.set(playerId, {
       body: body,
       sprite: sprite,
       space: this.space,
@@ -36,7 +36,7 @@ export class PlayersController {
   }
 
   getPlayerById (playerId) {
-    return this.ninjas.get(playerId)
+    return this.players.get(playerId)
   }
 
   setAnimation (player, animName) {

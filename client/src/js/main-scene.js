@@ -12,7 +12,7 @@ var MainScene = cc.Scene.extend({
   space: null,
   conn: null,
   connected: false,
-  ninjaLayer: null,
+  playerLayer: null,
   inputSeq: 0,
   game: null,
   playersController: null,
@@ -27,7 +27,7 @@ var MainScene = cc.Scene.extend({
       if (result['type'] != 'ping' && result['message'] != undefined) {
         var channel = JSON.parse(result.identifier).channel
       }
-      if (channel == 'NinjasChannel') {
+      if (channel == 'PlayersChannel') {
         var data = JSON.parse(result['message'])
         if (data.action == 'state') {
           if (this.game && this.game.isStarted()) {
@@ -78,8 +78,8 @@ var MainScene = cc.Scene.extend({
     this.initPhysics()
     this.playersController = new PlayersController(this.space)
     this.eventManager = new EventManager(this.conn)
-    this.ninjaLayer = this.playersController.ninjaLayer
-    this.addChild(this.ninjaLayer)
+    this.playerLayer = this.playersController.playerLayer
+    this.addChild(this.playerLayer)
   },
   initPhysics: function () {
     this.space = new cp.Space()
@@ -163,7 +163,7 @@ var MainScene = cc.Scene.extend({
     this.conn.send(
       JSON.stringify({
         command: 'message',
-        identifier: JSON.stringify({ channel: 'NinjasChannel', id: this.conn.randChannelId }),
+        identifier: JSON.stringify({ channel: 'PlayersChannel', id: this.conn.randChannelId }),
         data: JSON.stringify({
           action: 'join',
           id: this.conn.randChannelId})
@@ -173,7 +173,7 @@ var MainScene = cc.Scene.extend({
     this.conn.send(
       JSON.stringify({
         command: 'message',
-        identifier: JSON.stringify({ channel: 'NinjasChannel', id: this.conn.randChannelId }),
+        identifier: JSON.stringify({ channel: 'PlayersChannel', id: this.conn.randChannelId }),
         data: JSON.stringify({
           action: 'inputUpdate',
           id: this.conn.randChannelId,

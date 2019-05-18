@@ -34,7 +34,7 @@ export class EventManager {
     this.connection.send(
       JSON.stringify({
         command: 'message',
-        identifier: JSON.stringify({ channel: 'NinjasChannel', id: this.conn.randChannelId }),
+        identifier: JSON.stringify({ channel: 'PlayersChannel', id: this.conn.randChannelId }),
         data: JSON.stringify({
           action: 'event',
           id: this.conn.randChannelId,

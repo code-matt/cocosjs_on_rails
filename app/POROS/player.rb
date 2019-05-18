@@ -1,8 +1,8 @@
-class Ninja
+class Player
   attr_accessor :name, :key_state, :id, :body, :inputs, :last_input_seq, :shape, :body, :touching_ground
   INFINITY = 1.0/0
   BOX_SIZE = 32
-  def initialize(id,ninja_obj,name="tommy")
+  def initialize(id,player_obj,name="tommy")
     @touching_ground = false
     @name = name
     @id = id
@@ -29,8 +29,8 @@ class Ninja
     @shape.e = 0.0
     @shape.u = 0.99
     @body.v_limit = 180
-    ninja_obj.space.add_body(@body)
-    ninja_obj.space.add_shape(@shape)
+    player_obj.space.add_body(@body)
+    player_obj.space.add_shape(@shape)
     return self
   end
 

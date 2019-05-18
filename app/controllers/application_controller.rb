@@ -1,4 +1,4 @@
-require_relative '../POROS/ninja_tracker.rb'
+require_relative '../POROS/player_tracker.rb'
 class ApplicationController < ActionController::API
-  NINJAS = NinjaTracker.new
+  PLAYERS = PlayerTracker.new
 end

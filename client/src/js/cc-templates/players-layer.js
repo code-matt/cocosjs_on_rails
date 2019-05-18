@@ -1,4 +1,4 @@
-var NinjaLayerTemplate = cc.Layer.extend({
+var PlayerLayerTemplate = cc.Layer.extend({
   spriteSheet: null,
   ctor: function (space) {
     this._super()
@@ -9,4 +9,4 @@ var NinjaLayerTemplate = cc.Layer.extend({
     this._super()
   }
 })
-export { NinjaLayerTemplate }
+export { PlayerLayerTemplate }

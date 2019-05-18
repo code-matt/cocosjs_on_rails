@@ -29,7 +29,7 @@ function Game ({options}) {
     player_cc_data.space.removeShape(player_cc_data.shape)
     player_cc_data.space.removeBody(player_cc_data.body)
     player_cc_data.sprite.removeFromParent()
-    playersController.ninjas.delete(playerId)
+    playersController.players.delete(playerId)
     serverGhosts.delete(playerId)
     players.delete(playerId)
   }
