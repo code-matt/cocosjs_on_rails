@@ -39,7 +39,7 @@ There are 3 Threads going on
 &nbsp;
 + SuckerPunch job running every 0.03 seconds stepping the Chipmunk Space simulation forward the same amount of time.
 
-Players presing on inputs are sent through the socket, causing their representation on the server to have the same input state. Thread number 3 above looks at the state of their server representation and processes the next simulation step with the new inputs the player pressed.
+Players input state is sent through the socket, causing their representation on the server to have the same input state. Thread number three above constantly looking at the state of their server representation's inputs which equates some some velocity for the next simulation step. Thread two constantly just sending out the latest simulation state (positions and velocity right now).
 
 #### Frontend
 Each player has both a Ghost and Player representation on the frontend. (Players are what is drawn) Ghosts are updated to the absolute position of what the server says their new position is, given their inputs after the next 'step' of the physics 'space' is performed. The Player object interpolates to the Ghost to smooth things out.
