@@ -8,8 +8,8 @@
 
 [![video][2]][1]
 
-  [1]: https://drive.google.com/file/d/0B30Vmzi9uv6keXFfTC11aHBtS2s/view?usp=sharing
-  [2]: http://i.imgur.com/jcXdik2.jpg (hover text)
+  [1]: https://drive.google.com/file/d/18rxY36Jubun7FI-a7dIoMJW4kFqWap_Y/view?usp=sharing
+  [2]: https://i.imgur.com/Nmzkzqf.jpg (hover text)
 
 # ^ click to watch video
 
@@ -43,7 +43,7 @@ Players input state is sent through the socket, causing their representation on 
 *{position, id, lastInputState} right now*
 
 #### Frontend
-Each player has both a Ghost and Player representation on the frontend. (Players are what is drawn) Ghosts are updated to the absolute position of what the server says their new position is, given the last inputs they sent. The Player object interpolates to the Ghost to smooth things out over a very short period.
+Each player has both a Ghost and Player representation on the frontend. (Players are what is drawn) Ghosts are updated to the absolute position of what the server says their new position is, given their inputs after the next 'step' of the physics 'space' is performed. The Player object interpolates to the Ghost to smooth things out.
 
 #### Maps
 TODO: ( There are [Tiled](https://www.mapeditor.org/) maps loaded onto both the front and backend with collision zones for the backend to use in the simulation )
