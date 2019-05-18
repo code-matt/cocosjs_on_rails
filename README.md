@@ -60,7 +60,7 @@ The Ghost/Player interpolation now is nice to smooth out time and network random
 
 + Stress test with [Thor](https://github.com/observing/thor)
 + Investigate communicating with binary instead of utf-8
-+ Persist the backend state through restarts. 
++ Persist the backend state through restarts and client reconnects. 
     * Players being able to load in different places/state depending on their last state before disconnecting(see #3 below).
     * Players Inventory/Items in ActiveRecord/Postgres tied to a User Model and maybe has many Characters.
     * Game state ('physical' state of all the players meaning position and things like health) recorded in a separate service/database that is also listening to all game updates ? Maybe saves every 30 seconds or so. This being able to recover where things left off from a hard crash. To point one above, when a player logs back in, look at their old state if it still applies to the current game and determine where and in what state to spawn them.
