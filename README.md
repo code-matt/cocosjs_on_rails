@@ -2,7 +2,7 @@
 
 <img align="right" src="http://i.imgur.com/KA3OaVG.png" />
 
-## Rails websocket html5 multiplayer boilerplate. Rails is an authortative server running chipmunk physics in one thread. Regular updates about state are delivered on another. SuckerPunch gem used for background processing of the physics.
+#### Rails websocket html5 multiplayer boilerplate. Rails is an authortative server running chipmunk physics in one thread. Regular updates about state are delivered on another. SuckerPunch gem used for background processing of the physics.
 
 # extreme WIP
 
