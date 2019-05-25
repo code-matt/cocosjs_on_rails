@@ -6,6 +6,8 @@
 
 # extreme WIP
 
+# TLDR: A 2D Web Multiplayer game framework WIP
+
 [![video][2]][1]
 
   [1]: https://drive.google.com/file/d/18rxY36Jubun7FI-a7dIoMJW4kFqWap_Y/view?usp=sharing
@@ -37,7 +39,7 @@ There are 3 threads going on
 + SuckerPunch job running every 0.045 seconds updating the client over the websocket connection about the state of themselves and all other players
 **Think about not broadcasting to everyone and only sending state information to each client about things that are close enough to them to see or affect them.**
 &nbsp;
-+ SuckerPunch job running every 0.03 seconds stepping the Chipmunk Space simulation forward the same amount of time.
++ SuckerPunch job running every 0.03 seconds stepping the Chipmunk physics simulation forward the same amount of time.
 
 Players input state is sent through the socket, causing their representation on the server to have the same input state. Thread number three above constantly looking at the state of their server representation's inputs which equates to some force(impulse) being applied to them in the next simulation step. Thread two constantly just sending out the latest simulation state for each player.
 *{position, id, lastInputState} right now*
