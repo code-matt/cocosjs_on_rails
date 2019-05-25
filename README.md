@@ -48,7 +48,7 @@ Players input state is sent through the socket, causing their representation on 
 Each player has both a Ghost and Player representation on the frontend. (Player's sprite/position is what draws) Ghosts are updated to the absolute position of what the server says their new position is. The Player object interpolates to the Ghost to smooth things out.
 
 #### Maps
-Maps cre created using [Tiled](!https://www.mapeditor.org/)
+Maps cre created using [Tiled](https://www.mapeditor.org/)
 Draw a poly shape anywhere you want there to be a collision area for players such as walls or floors. Maps are loaded on the frontend for the visual as well as the backend which itterates through the poly shapes and makes static objects in Chipmunk for collision.
 ![](tiled.png)
 
