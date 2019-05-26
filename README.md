@@ -61,6 +61,7 @@ TODO: ( Cover player animations to start )
 &nbsp;
 + **Client side prediction**
 The Ghost/Player interpolation now is nice to smooth out time and network randomness between socket updates but ideally the player should begin moving (or whatever) the instant the input is pressed and when the server responds, rectify the difference with the player's Ghost smoothly, over time. The other players Ghost's should continue moving according to their last known inputs and rectify in the same way. This requires running (very nearly) the same physics simulation on both the frontend and backend, which I am not sure how to do.
+    * Consider ditching rails and use node backend with https://github.com/liabru/matter-js for frontend as well so physics      match ?
 &nbsp;
 
 + Stress test with [Thor](https://github.com/observing/thor)
