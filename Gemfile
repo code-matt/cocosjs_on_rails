@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '5.2.3'
 gem 'pg', '~> 0.18'
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 4.3'
 gem 'rack-cors'
 gem 'redis-rails'
 gem 'sucker_punch', '~> 2.0'
